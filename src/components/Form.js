@@ -17,10 +17,10 @@ class Form extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.update(this.state.value);
+    this.setState({value: ''})
   }
 
   render() {
-    console.log(tasks);
     return (
       <form onSubmit={this.handleSubmit}>
         <label>Task:</label>

@@ -14,13 +14,20 @@ class Container extends Component {
     this.setState({tasks: tasks})
   }
 
+  deleteTask = index => {
+    tasks.splice(index, 1);
+    this.setState({tasks})
+  }
+
   render() {
     return (
       <div className='task-list'>
-        {tasks.map((task, ix) => {
+        {tasks.map((task, index) => {
             return <Task 
-              key={ix}
+              key={index}
+              index={index}
               name={task.name}
+              onDelete={this.deleteTask}
             />
           })
         }
