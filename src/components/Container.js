@@ -11,7 +11,7 @@ class Container extends Component {
 
   updateTasks = value => {
     tasks.push({name: value})
-    this.setState({tasks: tasks})
+    this.setState({tasks})
   }
 
   deleteTask = index => {

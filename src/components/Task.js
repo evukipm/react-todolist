@@ -3,13 +3,16 @@ import React, { Component } from 'react'
 class Task extends Component {
 
   handleDelete = () => {
-    this.props.onDelete(this.props.index)
+    const {onDelete, index} = this.props
+    onDelete(index)
   }
 
   render() {
+    const {name} = this.props
+
     return (
       <div className='task'>
-        <div>{this.props.name}</div>
+        <div>{name}</div>
         <div><input type="checkbox"></input></div>
         <div><button onClick={this.handleDelete}>Delete</button></div>
       </div>

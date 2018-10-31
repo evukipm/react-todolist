@@ -8,6 +8,7 @@ class Form extends Component {
     taskArr: tasks
   }
 
+
   handleChange = event => {
     this.setState({
       value: event.target.value
@@ -15,16 +16,21 @@ class Form extends Component {
   }
 
   handleSubmit = event => {
+    const {value} = this.state
+    const {update} = this.props
+
     event.preventDefault();
-    this.props.update(this.state.value);
+    update(value);
     this.setState({value: ''})
   }
 
   render() {
+    const {value} = this.state
+
     return (
       <form onSubmit={this.handleSubmit}>
         <label>Task:</label>
-        <input type="text" value={this.state.value} onChange={this.handleChange} />
+        <input type="text" value={value} onChange={this.handleChange} />
         <input type="submit" value="Submit" />
       </form>
     )
